@@ -1,12 +1,99 @@
-.container {
-  height: 100vh;
-  width: 100vw;
-  overflow: scroll;
-  margin: 0;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+body {
+  margin: 0%;
   padding: 0;
+  font-family: poppins, sans-serif;
+  font-weight: 600;
+}
+.heading {
+  font-size: 3vh;
+  font-style: normal;
+  font-weight: 600;
+  margin: 2vh 4vw;
+}
+.container {
   display: grid;
+  margin: 1vh 3vw;
   grid-template-columns: 50vw 50vw;
 }
 .collegeCard {
-  margin: 1vw;
+  box-shadow: 0px 4px 16px 0px rgba(51, 51, 51, 0.08);
+  margin: 1vh 1vw;
+  width: 43vw;
+}
+.clg-img {
+  filter: brightness(50%);
+  width: 43vw;
+  height: 25vh;
+}
+.details {
+  position: relative;
+  top: -4vh;
+  display: flex;
+  justify-content: space-between;
+}
+.details-tags {
+  position: relative;
+  top: -6vh;
+  display: flex;
+  justify-content: space-between;
+}
+.font-1 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.font-2 {
+  margin-top: 1vh;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+.bg {
+  background: skyblue;
+  border-radius: 15px;
+}
+.fw {
+  font-weight: 600;
+  padding: 1px 10px;
+  width: fit-content;
+}
+.tags-1 {
+  top: -6vh important;
+  color: white;
+  z-index: 1;
+}
+.tags-2 {
+  background: white;
+  border-radius: 10px;
+  padding: 1vh;
+  margin: 3px;
+  font-size: 0.7rem;
+}
+.tags-3 {
+  position: relative;
+  color: white;
+  text-align: center;
+  font-size: 0.7rem;
+  border-radius: 10px;
+  top: -30vh;
+  background: orange;
+  z-index: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    display: flex;
+    margin: 1vh 3vw;
+    flex-direction: column;
+  }
+  .collegeCard {
+    width: 90vw;
+  }
+  .clg-img {
+    filter: brightness(50%);
+    width: 90vw;
+    height: 25vh;
+  }
+  .tags-1 {
+    display: none;
+  }
 }
