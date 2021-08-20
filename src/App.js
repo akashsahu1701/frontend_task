@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "./css/index.css";
 import collegeList from "./assets/colleges.json";
 import img1 from "./assets/img/college_01.jpg";
 import img2 from "./assets/img/college_02.jpg";
 
 const App = () => {
+  const [array, setArray] = useState(collegeList.colleges);
   return (
-    <div>
+    <div
+      style={{ height: "100vh", overflow: "scroll" }}
+      onScroll={(e) => {
+        const bottom =
+          e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+        if (bottom) {
+          setArray([...array, collegeList.colleges]);
+          console.log(array);
+        }
+      }}
+    >
       <div className="heading"> Colleges in North India</div>
       <div className="container">
-        {collegeList.colleges.map((college, index) => (
+        {array.map((college, index) => (
           <div className="collegeCard" key={index}>
+            {/* {array.length}
+            {console.log(array)} */}
             <img
               src={index % 2 !== 0 ? img1 : img2}
               className="clg-img"
@@ -62,9 +75,14 @@ const App = () => {
                   </span>
                   <span className="font-2">20% OFF</span>
                 </div>
-                <div style={{ color: "red" }}>
-                  {" "}
-                  ₹. {college.discounted_fees}{" "}
+                <div
+                  style={{
+                    color: "red",
+                    fontSize: "1.3rem",
+                    fontWeight: "1000",
+                  }}
+                >
+                  ₹. {college.discounted_fees}
                 </div>
                 <div style={{ fontSize: "0.5rem" }}> {college.fees_cycle} </div>
                 <div className="tags-3">
